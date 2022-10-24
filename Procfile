@@ -1,1 +1,1 @@
-web: unicorn api:app --reload
+web:unicorn api:app --reload
