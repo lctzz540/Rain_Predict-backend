@@ -6,7 +6,7 @@ import joblib
 from sklearn.ensemble import RandomForestClassifier
 
 app = FastAPI()
-#loaded_rf = joblib.load("weather_random_forest.joblib")
+loaded_rf = joblib.load("weather_random_forest.joblib")
 
 
 class Indicators(BaseModel):
@@ -29,6 +29,6 @@ def read_root():
     return "Welcome"
 
 
-#@app.post("/predict")
-#def read_item(indicators: Indicators):
-#    return {"result": int(loaded_rf.predict([[indicators.province, indicators.t_max, indicators.t_min, indicators.wind, indicators.wind_d, indicators.rain_today, indicators.humidi, indicators.cloud, indicators.pressure, indicators.day, indicators.dayofweek, indicators.month]])[0])}
+@app.post("/predict")
+def read_item(indicators: Indicators):
+    return {"result": int(loaded_rf.predict([[indicators.province, indicators.t_max, indicators.t_min, indicators.wind, indicators.wind_d, indicators.rain_today, indicators.humidi, indicators.cloud, indicators.pressure, indicators.day, indicators.dayofweek, indicators.month]])[0])}
