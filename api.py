@@ -2,11 +2,19 @@ from typing import Union
 
 from fastapi import FastAPI
 from pydantic import BaseModel
+<<<<<<< HEAD
 import joblib
 from sklearn.ensemble import RandomForestClassifier
 
 app = FastAPI()
 loaded_rf = joblib.load("weather_random_forest.joblib")
+=======
+import pickle
+from sklearn.ensemble import RandomForestClassifier
+
+app = FastAPI()
+loaded_rf = pickle.load(open("weather_random_forest.joblib", "rb"))
+>>>>>>> 8a3584b (first commit)
 
 
 class Indicators(BaseModel):
