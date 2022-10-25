@@ -4,10 +4,10 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from sklearn.ensemble import RandomForestClassifier
 
-import pickle
+import joblib
 
 app = FastAPI()
-loaded_rf = pickle.load(open("weather_random_forest.pkl", "rb"))
+loaded_rf = joblib.load(open("weather_random_forest.joblib", "rb"))
 
 
 class Indicators(BaseModel):
